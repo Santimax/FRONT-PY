@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen';
+import EventosScreen from './EventosScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,8 +11,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-         <Stack.Navigator>
+        <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Eventos" component={EventosScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
