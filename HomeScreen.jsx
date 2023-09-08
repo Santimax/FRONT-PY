@@ -22,3 +22,5 @@ const HomeScreen = () =>{
     );
 }
 export default HomeScreen
+
+//https://stackoverflow.com/questions/61091258/fetching-data-with-axios-and-rendering-flatlist
