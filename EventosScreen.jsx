@@ -6,7 +6,11 @@ import axios from 'axios';
         const [data, setData] = useState(null);
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState(null);
-
+        const navigationHook = useNavigation();    
+        const handleClick = () => {    
+        navigationHook.navigate('Detalle')  
+    };
+    
         useEffect(() => {
             const fetchData = async () => {
             try {
@@ -19,6 +23,8 @@ import axios from 'axios';
             setError(e);
             setLoading(false);
         }
+
+        
         };
 
         fetchData();
@@ -51,8 +57,6 @@ import axios from 'axios';
             }}>
             <Text style={{fontSize: 18}}>{item.idEvento}</Text>
             <Text style={{fontSize: 14}}>{item.nombreEvento}</Text>
-            <Text style={{fontSize: 14}}>{item.descripcionEvento}</Text>
-            <Text style={{fontSize: 14}}>{item.fk_tipoEvento}</Text>
             </View>
         );
     };
@@ -65,8 +69,10 @@ import axios from 'axios';
             renderItem={renderItem}
             keyExtractor={item => item.id}
             />
+            <Button title="Go to Eventos" onPress={handleClick}/>
         </SafeAreaView>
         );
     };
+
 
     export default EventosScreen;
