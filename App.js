@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen';
 import EventosScreen from './EventosScreen';
-
+import DetalleEvento from './DetalleEvento';
 const Stack = createNativeStackNavigator();
 
 export default function App() {

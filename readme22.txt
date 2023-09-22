@@ -71,3 +71,22 @@ const App = () => {
 };
 
 export default App;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+import React, {useState, useEffect} from 'react';
+import {View, Text, ActivityIndicator, FlatList, SafeAreaView,} from 'react-native';
+import axios from 'axios';
+
+const DetalleEvento = () => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const navigationHook = useNavigation();    
+    const handleClick = () => {    
+    navigationHook.navigate('Detalle')  
+};
+
+};
+
+export default DetalleEvento;

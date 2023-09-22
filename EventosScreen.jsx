@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, ActivityIndicator, FlatList, SafeAreaView,} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native-web';
 import axios from 'axios';
 
     const EventosScreen = () => {
@@ -10,6 +14,7 @@ import axios from 'axios';
         const handleClick = () => {    
         navigationHook.navigate('Detalle')  
     };
+    
     
         useEffect(() => {
             const fetchData = async () => {
@@ -57,6 +62,7 @@ import axios from 'axios';
             }}>
             <Text style={{fontSize: 18}}>{item.idEvento}</Text>
             <Text style={{fontSize: 14}}>{item.nombreEvento}</Text>
+            <Button title="Go to Detalles" onPress={handleClick}/>
             </View>
         );
     };
@@ -69,7 +75,7 @@ import axios from 'axios';
             renderItem={renderItem}
             keyExtractor={item => item.id}
             />
-            <Button title="Go to Eventos" onPress={handleClick}/>
+            <Button title="Go to Detalles" onPress={handleClick}/>
         </SafeAreaView>
         );
     };
