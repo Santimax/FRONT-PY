@@ -12,29 +12,26 @@ import axios from 'axios';
         const [error, setError] = useState(null);
         const navigationHook = useNavigation();    
         const handleClick = () => {    
-        navigationHook.navigate('Detalle')  
+        console.log('boton');
+        navigationHook.navigate('Detalles') 
     };
     
-    
+    const baseURL = 'http://a-phz2-cidi-045:3000/API/eventos';
+
         useEffect(() => {
             const fetchData = async () => {
             try {
-            const response = await axios.get(
-                'http://a-phz2-cidi-045:3000/API/eventos',
-            );
+            const response = await axios.get(`${baseURL}`,);
             setData(response.data);
             setLoading(false);
             } catch (e) {
             setError(e);
             setLoading(false);
         }
-
         
         };
-
         fetchData();
         }, []);
-
         if (loading) {
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -62,7 +59,7 @@ import axios from 'axios';
             }}>
             <Text style={{fontSize: 18}}>{item.idEvento}</Text>
             <Text style={{fontSize: 14}}>{item.nombreEvento}</Text>
-            <Button title="Go to Detalles" onPress={handleClick}/>
+            <Button title="Detalles" onPress={handleClick}/>
             </View>
         );
     };
@@ -75,7 +72,6 @@ import axios from 'axios';
             renderItem={renderItem}
             keyExtractor={item => item.id}
             />
-            <Button title="Go to Detalles" onPress={handleClick}/>
         </SafeAreaView>
         );
     };
