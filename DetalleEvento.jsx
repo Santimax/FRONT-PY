@@ -5,90 +5,41 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-web';
 import axios from 'axios';
+import { useRoute } from '@react-navigation/native';
 
-    const DetalleEvento = () => {
-        const [data, setData] = useState(null);
-        const [loading, setLoading] = useState(true);
-        const [error, setError] = useState(null);
-        const navigationHook = useNavigation();    
-        const handleClick = () => {    
-        console.log('boton');
-        navigationHook.navigate('Detalles') 
-    };
-    
-    const baseURL = 'http://a-phz2-cidi-045:3000/API/eventos';
+const DetalleEvento = () => {
+    const route = useRoute();
+    const { eventId } = route.params;
+  useEffect(() => {
 
-        useEffect(() => {
-            const fetchData = async () => {
-            try {
-            const response = await axios.get(`${baseURL}/${item.idEvento}`,);
-            setData(response.data);
-            setLoading(false);
-            } catch (e) {
-            setError(e);
-            setLoading(false);
-        }
-        
-        function getByIdRequest()
-        {
-            axios.get(`${baseURL}/${item.idEvento}`,)
-            .then(function (response) {
-            console.log(response);
-            })
-            .catch(function (error) {
-            console.log(error);
-            })
-            .then(function () {
-            });
-        }
+    const [evento, setEvento] = useState(null);
 
-        };
-        getByIdRequest();
-        }, []);
-        if (loading) {
-        return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <ActivityIndicator />
-            </View>
-        );
-        }
+    axios.get(`http://a-phz2-cidi-045:3000/API/eventos/${eventId}`)
+      .then(response => {
+        // Procesa los datos del evento
+        setEvento(response.data);
+      })
+      .catch(error => {
+        console.error('Error al recuperar los datos del evento', error);
+      });
+  }, []);
 
-        if (error) {
-        return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>An error occurred</Text>
-            </View>
-        );
-        }
+  if (!evento) {
+    return (
+      <View>
+        <Text>Cargando...</Text>
+      </View>
+    );
+  }
 
-        const renderItem = ({item}) => {
-            return (
-                <View
-                style={{
-                padding: 10,
-                marginVertical: 8,
-                marginHorizontal: 16,
-                backgroundColor: '#f9c2ff',
-            }}>
-            <Text style={{fontSize: 18}}>{item.idEvento}</Text>
-            <Text style={{fontSize: 14}}>{item.nombreEvento}</Text>
-            <Text style={{fontSize: 14}}>{item.fechaEvento}</Text>
-            <Text style={{fontSize: 14}}>{item.descripcionEvento}</Text>
-            <Text style={{fontSize: 14}}>{item.fk_tipoEvento}</Text>    
-            </View>
-        );
-    };
+  return (
+    <View>
+      <Text>Nombre del Evento: {evento.nombreEvento}</Text>
+      <Text>Fecha del Evento: {evento.fechaEvento}</Text>
+      <Text>Descripción del Evento: {evento.descripcionEvento}</Text>
+      {/* Mostrar otros detalles del evento según sea necesario */}
+    </View>
+  );
+};
 
-        return (
-        <SafeAreaView
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            />
-        </SafeAreaView>
-        );
-    };
-
-    export default DetalleEvento;
+export default DetalleEvento;
