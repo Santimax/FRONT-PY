@@ -13,12 +13,9 @@ const HomeScreen = () =>{
     };
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home</Text>
-        <Button
-            title="Eventos"
-            onPress={handleClick}
-        />
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#3a3eb0'}}>
+        <Text style={{color: 'white'}}>Home</Text>
+        <Button title="Eventos" onPress={handleClick}/>
         </View>
     );
 }
