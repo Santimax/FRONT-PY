@@ -4,7 +4,7 @@ import { ActivityIndicator, FlatList, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-
+import Logo from './../Cosas varias/loguito';
 
 const HomeScreen = () =>{
     const navigationHook = useNavigation();    
@@ -15,21 +15,17 @@ const HomeScreen = () =>{
     const navigation = useNavigation();    
     const Click = () => {    
         console.log('boton');
-        navigationHook.navigate('Calendario')  
+        navigationHook.navigate('Eventos')  
     };
-
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home</Text>
-        <Button
-            title="Eventos"
-            onPress={handleClick}
-        /> 
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#3a3eb0'}}>
+        <Logo/>
+        <Text>  </Text>
+        <Text style={{color: '#ffffff', fontSize: 35, fontFamily: 'italic'}}>H D O</Text>
         <Text> </Text>
-        <Button
-            title="Calendario"
-            onPress={Click}
-        />
+        <Button title="Eventos" onPress={handleClick}/>
+        <Text> </Text>
+        <Button title="Calendario" onPress={Click}/>
         </View>
     );
 }
