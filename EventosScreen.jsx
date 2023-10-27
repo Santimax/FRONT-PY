@@ -10,11 +10,11 @@ import axios from 'axios';
         const [data, setData] = useState(null);
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState(null);
-        const navigationHook = useNavigation(); 
-
-        const handleClick = (eventId) => {
-        navigationHook.navigate('Detalles', { eventId });
-        };           
+        const navigationHook = useNavigation();    
+        const handleClick = () => {    
+        console.log('boton');
+        navigationHook.navigate('Detalles') 
+    };
     
     const baseURL = 'http://a-phz2-cidi-045:3000/API/eventos';
 
@@ -55,14 +55,11 @@ import axios from 'axios';
                 padding: 10,
                 marginVertical: 8,
                 marginHorizontal: 16,
-                backgroundColor: '#f9c2ff',
+                backgroundColor: '#c21104',
             }}>
-
-            key={item.idEvento}
-            
             <Text style={{fontSize: 18}}>{item.idEvento}</Text>
             <Text style={{fontSize: 14}}>{item.nombreEvento}</Text>
-            <Button title="Detalles" onPress={() => handleClick(item.idEvento)} />
+            <Button title="Detalles" onPress={handleClick}/>
             </View>
         );
     };
@@ -77,6 +74,7 @@ import axios from 'axios';
             />
         </SafeAreaView>
         );
-};
+    };
+
 
     export default EventosScreen;
