@@ -12,14 +12,9 @@
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "axios": "^1.5.0",
-<<<<<<< HEAD
-    "expo": "~49.0.8",
-    "expo-calendar": "^11.3.2",
-=======
     "calendar": "^0.1.1",
     "expo": "^49.0.16",
     "expo-calendar": "~11.3.0",
->>>>>>> 7c00c921d408d4e58c275c9833104adf551d5aeb
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
