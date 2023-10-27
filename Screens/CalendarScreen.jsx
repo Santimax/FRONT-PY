@@ -15,7 +15,7 @@ const CalendarScreen = () =>{
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home</Text>
+        <Text>Calendario</Text>
         <Button
             title="Eventos"
             onPress={handleClick}
