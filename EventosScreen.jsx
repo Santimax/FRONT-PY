@@ -8,7 +8,7 @@ import axios from 'axios';
 
     const EventosScreen = () => {
         const [data, setData] = useState(null);
-        const [loading, setLoading] = useState(true);
+        const [loading, setLoading] = useState(false);
         const [error, setError] = useState(null);
         const navigationHook = useNavigation();    
         const handleClick = () => {    
@@ -28,27 +28,19 @@ import axios from 'axios';
             setError(e);
             setLoading(false);
         }
-        
         };
-        fetchData();
-        }, []);
-        if (loading) {
+
+        fetchData();}, []);
+
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <ActivityIndicator />
+            <FlatList data={data} renderItem={renderItem} keyExtractor={item => item.id}/>
             </View>
         );
+        
         }
 
-        if (error) {
-        return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>An error occurred</Text>
-            </View>
-        );
-        }
-
-        const renderItem = ({item}) => {
+ /*       const renderItem = ({item}) => {
             return (
                 <View
                 style={{
@@ -75,6 +67,7 @@ import axios from 'axios';
         </SafeAreaView>
         );
     };
+    */
 
 
     export default EventosScreen;
