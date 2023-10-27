@@ -78,3 +78,4 @@ import axios from 'axios';
 
 
     export default EventosScreen;
+    //https://github.com/Santimax/rnimagen.git
