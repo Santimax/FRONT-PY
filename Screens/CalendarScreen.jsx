@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
 
-const HomeScreen = () =>{
+const CalendarScreen = () =>{
     const navigationHook = useNavigation();    
     const handleClick = () => {    
         console.log('boton');
@@ -23,6 +23,4 @@ const HomeScreen = () =>{
         </View>
     );
 }
-export default HomeScreen
-
-//https://stackoverflow.com/questions/61091258/fetching-data-with-axios-and-rendering-flatlist
+export default CalendarScreen
