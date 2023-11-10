@@ -5,6 +5,6 @@ export default function Logo()
 {
     
     return(
-    <><Image style={{ width: 100, height: 100}} source={{ uri: "https://shalomcorps.org/wp-content/uploads/2022/04/Habonim-Dror-logo.png" }}/></>
+    <><Image style={{ width: 150, height: 150}} source={{ uri: "https://shalomcorps.org/wp-content/uploads/2022/04/Habonim-Dror-logo.png" }}/></>
     )
 }
