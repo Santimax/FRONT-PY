@@ -16,8 +16,8 @@ import axios from 'axios';
         navigationHook.navigate('Detalles') 
     };
     
-    const baseURL = 'http://localhost:3000/API/eventos';
-    //http://a-phz2-cidi-045:3000/API/eventos
+    const baseURL = 'http://a-phz2-cidi-045:3000/API/eventos';
+
         useEffect(() => {
             const fetchData = async () => {
             try {

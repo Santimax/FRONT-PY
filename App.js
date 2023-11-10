@@ -1,19 +1,33 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './Screens/HomeScreen';
 import EventosScreen from './Screens/EventosScreen';
+import DetalleEvento from './Screens/DetalleEvento';
 import CalendarScreen from './Screens/CalendarScreen'
-
-const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen}  />
-        <Drawer.Screen name="Eventos" component={EventosScreen} />
-        <Drawer.Screen name="Calendario" component={CalendarScreen} />
-      </Drawer.Navigator>
+        <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Eventos" component={EventosScreen} />
+        <Stack.Screen name="Detalles" component={DetalleEvento} />
+        <Stack.Screen name="Calendario" component={CalendarScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
+//CalendarScreen
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0c2691',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
