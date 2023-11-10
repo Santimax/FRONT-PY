@@ -18,7 +18,7 @@ const HomeScreen = () =>{
         navigationHook.navigate('Eventos')  
     };
     return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0023bf'}}>
+        <View style={{flex: 1, alignItems: 'center', backgroundColor: '#0023bf'}}>
         <Logo/>
         <Text>  </Text>
         <Text style={{color: '#ffffff', fontSize: 35, fontFamily: 'italic'}}>H D O</Text>
